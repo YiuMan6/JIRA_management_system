@@ -1,11 +1,11 @@
 import React from 'react'
-import SearchList from './components/searchPannel'
+import { useAuth } from './context/AuthProvider'
+import Authtication from './pages/authtication'
+import HomePage from './pages/homepage'
+
 const App = () => {
-	return (
-		<div className="App">
-			<SearchList />
-		</div>
-	)
+	const { user } = useAuth()
+	return <div className="App">{user ? <HomePage /> : <Authtication />}</div>
 }
 
 export default App
